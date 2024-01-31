@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import {vehiculoRoutes} from "./Routes/vehiculoRoutes.js";
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const url = 'mongodb+srv://test:123@testdatabase.oh49bmu.mongodb.net/Vehiculos?retryWrites=true&w=majority';
 
 mongoose.connect(url).then(() => {
