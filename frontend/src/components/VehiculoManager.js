@@ -13,7 +13,7 @@ const VehiculoManager = () => {
 
     const cargarVehiculos = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/api/vehiculos');
+            const response = await axios.get('/api/vehiculos');
             setVehiculos(response.data);
         } catch (error) {
             console.error('Error al obtener vehículos', error);
@@ -33,10 +33,10 @@ const VehiculoManager = () => {
         try {
             if (vehiculoId) {
                 // Actualizar vehículo
-                await axios.put(`http://localhost:3000/api/vehiculos/${vehiculoId}`, vehiculo);
+                await axios.put(`/api/vehiculos/${vehiculoId}`, vehiculo);
             } else {
                 // Crear vehículo
-                await axios.post('http://localhost:3000/api/vehiculos', vehiculo);
+                await axios.post('/api/vehiculos', vehiculo);
             }
             setVehiculo({ marca: '', modelo: '', año: '', color: '' });
             setVehiculoId('');
@@ -48,7 +48,7 @@ const VehiculoManager = () => {
 
     const eliminarVehiculo = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/api/vehiculos/${id}`);
+            await axios.delete(`/api/vehiculos/${id}`);
             cargarVehiculos();
         } catch (error) {
             console.error('Error al eliminar vehículo', error);
